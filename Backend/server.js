@@ -7,21 +7,11 @@ const connectDB = require('./config/connectDB')
 const app = express()
 connectDB()
 
-const allowedOrigins = [
-    "http://localhost:5173",
-    process.env.CLIENT_URL
-]
 
 app.use(cors({
-    origin: function(origin, callback) {
-        if(!origin) return callback(null, true)
-        if(allowedOrigins.indexOf(origin) === -1) {
-            const msg = "The CORS policy for this site does not allow access from the specified Origin."
-            return callback(new Error(msg), false)
-        }
-        return callback(null, true)
-    }
+    origin : "https://secure-note-sharing-app.vercel.app"
 }))
+
 app.use(express.json())
 
 app.get("/", (req, res)=> {
