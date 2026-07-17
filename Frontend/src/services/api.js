@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://secure-note-sharing-app.onrender.com"
+    baseURL: "https://secure-note-sharing-app.onrender.com/api/v1"
 });
 
 // Automatically attach JWT
